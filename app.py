@@ -72,8 +72,17 @@ def find_mandatory_path(lat, lon, api_key, minutes):
         counter.update(path)
     m = folium.Map(location=[lat, lon], zoom_start=16)
     for node, count in counter.items():
-        folium.CircleMarker(location=(G.nodes[node]['y'], G.nodes[node]['x']), radius=3, fill=True, fill_color='red', fill_opacity=min(0.1 + count / max(counter.values()), 1.0)).add_to(m)
-    folium.Marker(location=[lat, lon], popup='출발 지점', icon=folium.Icon(color='green')).add_to(m)
+        folium.CircleMarker(
+            location=(G.nodes[node]['y'], G.nodes[node]['x']),
+            radius=3, fill=True,
+            fill_color='red',
+            fill_opacity=min(0.1 + count / max(counter.values()), 1.0)
+        ).add_to(m)
+    folium.Marker(
+        location=[lat, lon],
+        popup='출발 지점',
+        icon=folium.Icon(color='green')
+    ).add_to(m)
     return m._repr_html_()
 
 @app.route('/')
@@ -103,5 +112,8 @@ def result():
 
     return render_template('result.html', map_html=map_html)
 
+# ⬇️ Render용으로 수정된 실행 부분
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)
