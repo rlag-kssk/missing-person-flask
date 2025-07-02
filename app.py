@@ -33,10 +33,19 @@ def simulate_once(G, start_node, speed, weight, total_time_min, step_time=30):
         nbrs = list(G.neighbors(current))
         if not nbrs: break
         if random.random() < 0.5: continue
-        probs = [weight.get(list(G.get_edge_data(current, v).values())[0].get('highway', 'residential'), 1) for v in nbrs]
+
+        probs = []
+        for v in nbrs:
+            data = list(G.get_edge_data(current, v).values())[0]
+            highway = data.get('highway', 'residential')
+            if isinstance(highway, list):
+                highway = highway[0]
+            probs.append(weight.get(highway, 1))
+
         probs = np.array(probs, dtype=float)
         probs /= probs.sum()
         current = random.choices(nbrs, probs)[0]
+
     return current
 
 def run_simulation(lat, lon, speed, weight, minutes):
