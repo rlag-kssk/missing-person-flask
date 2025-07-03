@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>기본 정보 입력</title></head>
+<body>
+<h2>기본 정보 입력</h2>
+<form method="post" action="/submit_info">
+    성별: <select name="gender"><option>남</option><option>여</option></select><br>
+    나이대: <select name="age"><option>어린이</option><option>청소년</option><option>성인</option><option>노인</option></select><br>
+    위도: <input name="lat" value="37.748230"><br>
+    경도: <input name="lon" value="127.063510"><br>
+    경과 시간 (분): <input name="time" value="30"><br>
+    도로 선호도: <select name="preference"><option>도로 선호</option><option>자연로 선호</option></select><br>
+    <input type="submit" value="다음">
+</form>
+</body></html>
