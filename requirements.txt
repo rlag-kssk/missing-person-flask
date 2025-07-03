@@ -4,3 +4,4 @@ networkx
 folium
 shapely
 openrouteservice
+scipy
