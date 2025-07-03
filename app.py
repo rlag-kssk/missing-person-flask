@@ -8,6 +8,8 @@ from collections import Counter
 import random
 import numpy as np
 import openrouteservice
+
+# 커스텀 모듈 import
 from 보로노이 import generate_voronoi_map
 from 반드시_지나는_경로 import find_mandatory_paths
 
@@ -27,14 +29,17 @@ def get_weight(preference):
     else:
         return {'residential': 2, 'footway': 3, 'path': 5, 'service': 2}
 
+# 홈 화면: 기능 선택
 @app.route('/')
 def index():
     return render_template('index.html')
 
+# 시뮬레이션 입력
 @app.route('/simulate_input')
 def simulate_input():
     return render_template('simulate_input.html')
 
+# 시뮬레이션 결과
 @app.route('/simulate_result', methods=['POST'])
 def simulate_result():
     gender = request.form['gender']
@@ -50,10 +55,12 @@ def simulate_result():
     map_html = generate_voronoi_map(lat, lon, speed, weight, minutes)
     return render_template('simulate_result.html', map_html=map_html)
 
+# 강제경유지점 입력
 @app.route('/mandatory_input')
 def mandatory_input():
     return render_template('mandatory_input.html')
 
+# 강제경유지점 결과
 @app.route('/mandatory_result', methods=['POST'])
 def mandatory_result():
     lat = float(request.form['lat'])
