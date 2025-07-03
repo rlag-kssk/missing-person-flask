@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>실종자 수색 시스템</title>
+</head>
+<body>
+    <h1>실종자 수색 시스템</h1>
+    <p>사용할 기능을 선택하세요:</p>
+
+    <ul>
+        <li><a href="/simulate_input">🔍 시뮬레이션 실행</a></li>
+        <li><a href="/mandatory_input">📍 강제경유지점 분석</a></li>
+    </ul>
+</body>
+</html>
