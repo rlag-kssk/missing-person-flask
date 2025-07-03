@@ -5,12 +5,47 @@
     <title>실종자 수색 시스템</title>
 </head>
 <body>
-    <h1>실종자 수색 시스템</h1>
-    <p>사용할 기능을 선택하세요:</p>
+    <h2>실종자 수색 - 기본 정보 입력</h2>
+    <form action="/process_input" method="post">
+        <label>성별:</label>
+        <select name="gender">
+            <option>남</option>
+            <option>여</option>
+        </select><br><br>
 
-    <ul>
-        <li><a href="/simulate_input">🔍 시뮬레이션 실행</a></li>
-        <li><a href="/mandatory_input">📍 강제경유지점 분석</a></li>
-    </ul>
+        <label>나이대:</label>
+        <select name="age">
+            <option>어린이</option>
+            <option>청소년</option>
+            <option>성인</option>
+            <option>노인</option>
+        </select><br><br>
+
+        <label>위도:</label>
+        <input name="lat" value="37.748230"><br><br>
+
+        <label>경도:</label>
+        <input name="lon" value="127.063510"><br><br>
+
+        <label>경과 시간 (분):</label>
+        <input name="time" value="30"><br><br>
+
+        <label>도로 선호도:</label>
+        <select name="preference">
+            <option>도로 선호</option>
+            <option>자연로 선호</option>
+        </select><br><br>
+
+        <label>사용할 기능 선택:</label>
+        <select name="action">
+            <option value="simulate">🔍 시뮬레이션</option>
+            <option value="mandatory">📍 강제경유지점 분석</option>
+        </select><br><br>
+
+        <label>API 키 (강제경유지점 기능 사용 시만 입력):</label>
+        <input name="api_key"><br><br>
+
+        <input type="submit" value="실행">
+    </form>
 </body>
 </html>
