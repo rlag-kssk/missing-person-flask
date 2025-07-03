@@ -38,7 +38,7 @@ def simulate_once(G, start_node, speed, weight, total_time_min, step_time=30):
         for v in nbrs:
             data = list(G.get_edge_data(current, v).values())[0]
             highway = data.get('highway', 'residential')
-            if isinstance(highway, list):  # 리스트일 경우 첫 값 사용
+            if isinstance(highway, list):
                 highway = highway[0]
             probs.append(weight.get(highway, 1))
 
@@ -59,7 +59,11 @@ def run_simulation(lat, lon, speed, weight, minutes):
     folium.Marker([lat, lon], popup='출발 지점', icon=folium.Icon(color='green')).add_to(m)
     if freq:
         most_common = freq.most_common(1)[0][0]
-        folium.Marker([G.nodes[most_common]['y'], G.nodes[most_common]['x']], popup='예상 위치', icon=folium.Icon(color='red')).add_to(m)
+        folium.Marker(
+            [G.nodes[most_common]['y'], G.nodes[most_common]['x']],
+            popup='예상 위치',
+            icon=folium.Icon(color='red')
+        ).add_to(m)
     return m._repr_html_()
 
 def find_mandatory_path(lat, lon, api_key, minutes):
@@ -81,10 +85,16 @@ def find_mandatory_path(lat, lon, api_key, minutes):
         counter.update(path)
     m = folium.Map(location=[lat, lon], zoom_start=16)
     for node, count in counter.items():
-        folium.CircleMarker(location=(G.nodes[node]['y'], G.nodes[node]['x']), radius=3,
-                            fill=True, fill_color='red',
-                            fill_opacity=min(0.1 + count / max(counter.values()), 1.0)).add_to(m)
-    folium.Marker(location=[lat, lon], popup='출발 지점', icon=folium.Icon(color='green')).add_to(m)
+        folium.CircleMarker(
+            location=(G.nodes[node]['y'], G.nodes[node]['x']),
+            radius=3, fill=True, fill_color='red',
+            fill_opacity=min(0.1 + count / max(counter.values()), 1.0)
+        ).add_to(m)
+    folium.Marker(
+        location=[lat, lon],
+        popup='출발 지점',
+        icon=folium.Icon(color='green')
+    ).add_to(m)
     return m._repr_html_()
 
 @app.route('/')
