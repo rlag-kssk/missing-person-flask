@@ -1,0 +1,7 @@
+flask
+osmnx
+networkx
+folium
+shapely
+scipy
+openrouteservice
