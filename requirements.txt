@@ -5,3 +5,4 @@ folium
 shapely
 scipy
 openrouteservice
+scikit-learn
