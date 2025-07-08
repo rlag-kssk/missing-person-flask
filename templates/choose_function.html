@@ -1,9 +1,17 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>기능 선택</title></head>
-<body>
-<h2>사용할 기능을 선택하세요</h2>
-<ul>
-    <li><a href="/simulate">🔍 시뮬레이션 실행</a></li>
-    <li><a href="/mandatory_input">📍 강제경유지점 분석</a></li>
-</ul>
-</body></html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>기능 선택</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md text-center">
+    <h2 class="text-2xl font-bold mb-6">사용할 기능을 선택하세요</h2>
+    <div class="space-y-4">
+      <a href="/simulate" class="block bg-green-500 text-white font-semibold py-2 rounded hover:bg-green-600">🔍 시뮬레이션 실행</a>
+      <a href="/mandatory_input" class="block bg-indigo-500 text-white font-semibold py-2 rounded hover:bg-indigo-600">📍 강제경유지점 분석</a>
+    </div>
+  </div>
+</body>
+</html>
