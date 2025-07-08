@@ -1,15 +1,53 @@
 <!DOCTYPE html>
-<html>
-<head><meta charset="utf-8"><title>기본 정보 입력</title></head>
-<body>
-<h2>기본 정보 입력</h2>
-<form method="post" action="/submit_info">
-    성별: <select name="gender"><option>남</option><option>여</option></select><br>
-    나이대: <select name="age"><option>어린이</option><option>청소년</option><option>성인</option><option>노인</option></select><br>
-    위도: <input name="lat" value="37.748230"><br>
-    경도: <input name="lon" value="127.063510"><br>
-    경과 시간 (분): <input name="time" value="30"><br>
-    도로 선호도: <select name="preference"><option>도로 선호</option><option>자연로 선호</option></select><br>
-    <input type="submit" value="다음">
-</form>
-</body></html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>기본 정보 입력</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-10 rounded-xl shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center mb-6">기본 정보 입력</h2>
+    <form method="post" action="/submit_info" class="space-y-4">
+      <div>
+        <label class="block text-gray-700 font-semibold">성별</label>
+        <select name="gender" class="w-full border border-gray-300 rounded px-3 py-2">
+          <option>남</option>
+          <option>여</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-semibold">나이대</label>
+        <select name="age" class="w-full border border-gray-300 rounded px-3 py-2">
+          <option>어린이</option>
+          <option>청소년</option>
+          <option>성인</option>
+          <option>노인</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-gray-700 font-semibold">위도</label>
+        <input name="lat" value="37.748230" class="w-full border border-gray-300 rounded px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-semibold">경도</label>
+        <input name="lon" value="127.063510" class="w-full border border-gray-300 rounded px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-semibold">경과 시간 (분)</label>
+        <input name="time" value="30" class="w-full border border-gray-300 rounded px-3 py-2" />
+      </div>
+      <div>
+        <label class="block text-gray-700 font-semibold">도로 선호도</label>
+        <select name="preference" class="w-full border border-gray-300 rounded px-3 py-2">
+          <option>도로 선호</option>
+          <option>자연로 선호</option>
+        </select>
+      </div>
+      <div class="pt-4 text-center">
+        <button class="bg-blue-600 text-white font-semibold px-6 py-2 rounded hover:bg-blue-700">다음</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
