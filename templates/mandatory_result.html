@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html><head><meta charset="utf-8"><title>강제경유지점 결과</title></head>
-<body>
-<h2>강제경유지점 분석 결과</h2>
-<div>{{ map_html|safe }}</div>
-<a href="/">← 처음으로</a>
-</body></html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>강제경유지점 결과</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+  <div class="p-4 text-center">
+    <h2 class="text-2xl font-bold mb-4">강제경유지점 분석 결과</h2>
+    <div class="border rounded overflow-hidden shadow-md max-w-4xl mx-auto">
+      {{ map_html|safe }}
+    </div>
+    <div class="mt-6">
+      <a href="/" class="text-blue-600 hover:underline">← 처음으로</a>
+    </div>
+  </div>
+</body>
+</html>
